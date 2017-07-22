@@ -1,18 +1,20 @@
 package store
 
-import "minisiga"
+import (
+	"miniblog"
+)
 
 // CourseStore describes a storage for courses and operations for them.
-type CourseStore interface {
+type Store interface {
 	// GetAll courses
-	GetAll() []minisiga.Course
+	GetAll() []miniblog.Entry
 
 	// Get one course by pk.
-	Get(pk int) (minisiga.Course, error)
+	Get(pk string) (miniblog.Entry, error)
 
 	// Create a course, reassigning the PK.
-	Create(course minisiga.Course)
+	Create(course miniblog.Entry)
 
 	// Deletes a course.
-	Delete(course minisiga.Course)
+	Delete(course miniblog.Entry)
 }
